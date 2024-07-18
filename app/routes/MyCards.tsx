@@ -1,10 +1,12 @@
 import { Cards } from"./Data";
+import { useState } from "react";
 
-function IsMember({ act }: {act : boolean}){
+
+function IsMember({ id, act }: {id:number,act : boolean}){
   if(act)
-    return <span>  ✅ Hi,VIP Member.</span>
+    return <span key={id}>  ✅ Hi,VIP Member.</span>
     else
-    return <span>  ❌ Member Only! </span>
+    return <span key={id}>  ❌ Member Only! </span>
 }
 function Profiles ({id,nam,bio,bgp,imgu,usrn,cdat,act}:{id:number,nam:string,bio:any,bgp:string,imgu:string,usrn:string,cdat:string,act:boolean}) {
     return(
@@ -15,12 +17,11 @@ function Profiles ({id,nam,bio,bgp,imgu,usrn,cdat,act}:{id:number,nam:string,bio
           <div className="mb-8">
             <p className="text-sm text-gray-600 flex items-center">
               <svg className="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
               </svg>
-              Members only
+              <IsMember id={id} act={act}/>
             </p>
             <div className="text-gray-900 font-bold text-xl mb-2">{nam}</div>
-            <p className="text-gray-700 text-base">{bio}</p>
+            <p key={id} className="text-gray-700 text-base">{bio}</p>
           </div>
           <div className="flex items-center">
             <img className="w-10 h-10 rounded-full mr-4" src={imgu} title={nam }/>
@@ -29,7 +30,7 @@ function Profiles ({id,nam,bio,bgp,imgu,usrn,cdat,act}:{id:number,nam:string,bio
               <p className="text-gray-600">{cdat}</p>
             </div>
           </div>
-          <IsMember act={act}/>
+       
         </div>
       </div>
       );
@@ -37,11 +38,19 @@ function Profiles ({id,nam,bio,bgp,imgu,usrn,cdat,act}:{id:number,nam:string,bio
 
    
     export default function MyCards () {
+      const [active,setActive] = useState(true);
+
       const name = "chompunut nevisit";
-      const note = "#webprogramming#softwareengineering"
+      const note = "#webprogramming"
+      const note2 = "#softwareengineering"
       const chk = true;
 
-      const cardItems = Cards.map (cardItem => 
+
+      const items = Cards.filter(cardItems => 
+        cardItems.active === active
+      );
+
+      const cardItems = items.map (cardItem => 
         <Profiles 
         id={cardItem.id}
         nam={cardItem.name}
@@ -53,13 +62,44 @@ function Profiles ({id,nam,bio,bgp,imgu,usrn,cdat,act}:{id:number,nam:string,bio
         act={cardItem.active}
         />
       );
+
+      function handleClickActive(){
+        //alert("Before, handleClickActive -->"+active);
+        setActive(true);
+        // alert("After, handleClickActive -->"+ active);
+      }
+  
+      function handleClickNonAct(){
+        //alert("Before, handleClickNonAct -->"+active);
+        setActive(false);
+        // alert("After, handleClickNonAct -->"+ active);
+        
+      }
         return (
-          <>
-            <h1 className="text-3xl">My Cards: {name}</h1>
-            <p>{note}</p>
+          <div className="m-3 bg-amber-200 p-10">
+            <h1 className="text-3xl font-bold">My Cards: {name}</h1>
+            <div className="flex flex-row">
+            <div className="basis-1/4 m-2 p-3 bg-green-300 rounded-3xl text-red-700">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+            </svg>
+            {note}</div>
+           
+            <div className="basis-1/4 m-2 p-3 bg-green-200 rounded-3xl ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+           <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+            </svg>  
+            {note2}</div>
+            </div>
+             {/* <Profiles /> */}
+             {cardItems}
             <hr />
-            {/* <Profiles /> */}
-            {cardItems}
-          </>  
+            <button className="m-3 h-10 w-1/3 bg-green-700 text-green-100
+            rounded-3xl"onClick={handleClickActive}>Active</button>
+             <button className="m-3 h-10 w-1/3 bg-red-700 text-green-100
+            rounded-3xl"onClick={handleClickNonAct}>Non-Active</button>
+          </div> 
         );
     }

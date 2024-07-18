@@ -8,14 +8,16 @@ export const Cards = [
         userName: "ตอง",
         creadAt: "tuy 10,2024",
         active:false
+
+    
     },
     {
         id:102,
-        name: "choompunut ",
+        name: "Duanghathai ",
         biog: "นักเรียน",
         bgProf: "/images/1.jpg",
         userIcon: "/images/4.jpg",
-        userName: "chompu",
+        userName: "ตอง",
         creadAt: "tuy 10,2024",
         active: true
     },
