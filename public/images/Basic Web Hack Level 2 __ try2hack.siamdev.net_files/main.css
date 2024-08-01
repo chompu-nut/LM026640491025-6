@@ -1,0 +1,8 @@
+.title {font:10pt Tahoma;color:#FFFFFF;font-weight:bold;}
+.title a:link {color: #FFFFFF; text-decoration: none;}
+.title a:visited {color: #FFFFFF;text-decoration: none;}
+.title a:active {color: #FFFFFF;text-decoration: none;}
+.title a:hover {color: #FFFFFF;text-decoration: underline;}
+.txt {font:10pt MS Sans Serif;}
+.flattxt {font:8pt Tahoma;border:1px solid;border-color:#000000;color:#000000;font-weight:bold;background:#FFFFFF;}
+.flatbtn {font:8pt Tahoma;border:1px solid;border-color:#000000;color:#FFFFFF;font-weight:bold;background:#5F5F5F;}
