@@ -23,8 +23,6 @@ export default function EProject() {
 
   function handleClickDelete() {}
 
-  //let sculpture = sculpturelists[index];
-
   return (
     <>
       <h1>รายการโครงงานของเรา</h1>
