@@ -5,16 +5,16 @@ export default function AppMenu() {
         <div className="flex items-center">
             <ul className="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
                 <li>
-                    <a href="/" className="text-gray-900 dark:text-white hover:underline" aria-current="page">Home</a>
+                    <a href="/" className="text-gray-900 dark:text-white hover:underline" aria-current="page">ร้านยาสนุมไพร</a>
                 </li>
                 <li>
-                    <a href="createCard" className="text-gray-900 dark:text-white hover:underline">Create New Card</a>
+                    <a href="createCard" className="text-gray-900 dark:text-white hover:underline">หน้าเเรก</a>
                 </li>
                 <li>
-                    <a href="/cards/MyCards" className="text-gray-900 dark:text-white hover:underline">Cards</a>
+                    <a href="/cards/MyCards" className="text-gray-900 dark:text-white hover:underline">เพิ่มข้อมูลยาสนุมไพร</a>
                 </li>
                 <li>
-                    <a href="myScluptureList" className="text-gray-900 dark:text-white hover:underline">SculptureLists</a>
+                    <a href="myScluptureList" className="text-gray-900 dark:text-white hover:underline">ข้อมูลยาสมุนไพร</a>
 
                 </li>
             </ul>

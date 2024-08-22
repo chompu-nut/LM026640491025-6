@@ -44,31 +44,31 @@ export default function CreateCard() {
 
     return (
         <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-            <h1 className="text-3xl font-bold mb-6 text-blue-700">เพิ่มข้อมูล</h1>
+            <h1 className="text-3xl font-bold mb-6 text-blue-700">เพิ่มข้อมูลยาสนุมไพร:</h1>
             <div className="mb-4">
-                <label htmlFor="cName" className="block text-lg font-semibold text-blue-600 mb-2">ชื่อ-สกุล</label>
+                <label htmlFor="cName" className="block text-lg font-semibold text-blue-600 mb-2">ชื่อยาสมุนไพร</label>
                 <input 
                     id="cName"
                     name="cName"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="w-full p-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="กรุณากรอกชื่อ-สกุล"
+                    placeholder="กรุณากรอกชื่อยาสนุมไพร"
                 />
             </div>
             <div className="mb-4">
-                <label htmlFor="cNote" className="block text-lg font-semibold text-blue-600 mb-2">ที่อยู่</label>
+                <label htmlFor="cNote" className="block text-lg font-semibold text-blue-600 mb-2">รายละเอียด:</label>
                 <textarea 
                     id="cNote"
                     name="cNote"
                     value={note}
                     onChange={(e) => setNote(e.target.value)}
                     className="w-full p-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="กรุณากรอกข้อมูลที่อยู่"
+                    placeholder="กรุณากรอกรายละเอียด"
                 />
             </div>
             <div className="mb-4">
-                <label htmlFor="cPhone" className="block text-lg font-semibold text-blue-600 mb-2">หมายเลขโทรศัพท์</label>
+                <label htmlFor="cPhone" className="block text-lg font-semibold text-blue-600 mb-2">การนำเอาไปใช้</label>
                 <input 
                     id="cPhone"
                     name="cPhone"
@@ -76,11 +76,11 @@ export default function CreateCard() {
                     onChange={(e) => setPhone(e.target.value)}
                     className="w-full p-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     type="tel"
-                    placeholder="กรุณากรอกเบอร์โทรศัพท์"
+                    placeholder="กรุณากรอกการนำเอาไปใช้"
                 />
             </div>
             <div className="mb-6">
-                <label htmlFor="cImage" className="block text-lg font-semibold text-blue-600 mb-2">อัพโหลดรูปภาพ</label>
+                <label htmlFor="cImage" className="block text-lg font-semibold text-blue-600 mb-2">อัพโหลดรูปภาพตัวอย่าง</label>
                 <input 
                     id="cImage"
                     name="cImage"
@@ -94,23 +94,22 @@ export default function CreateCard() {
                 onClick={handleClickAdd} 
                 className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition-colors duration-300"
             >
-                เพิ่มนามบัตร
+                เพิ่มข้อมูลยาสนุมไพร:
             </button>
             <div className="mt-6">
                 <h2 className="text-2xl font-semibold text-blue-700 mb-4 flex justify-between items-center">
-                    รายการนามบัตร
-                    <span className="text-lg text-gray-600">จำนวน {cards.length} รายการ</span>
+                    รายการยาสมุนไพร
+                    <span className="text-lg text-gray-600">จำนวน {cards.length} รายการยาสมุนไพร</span>
                 </h2>
                 <div className="overflow-x-auto">
                     <table className="w-full border-collapse bg-white">
                         <thead className="bg-blue-500 text-white">
                             <tr>
                                 <th className="p-3 text-left">ID</th>
-                                <th className="p-3 text-left">รูปภาพ</th>
-                                <th className="p-3 text-left">ชื่อ-สกุล</th>
-                                <th className="p-3 text-left">ที่อยู่</th>
-                                <th className="p-3 text-left">หมายเลขโทรศัพท์</th>
-                                <th className="p-3 text-left">รายละเอียด</th>
+                                <th className="p-3 text-left">รูปภาพตัวอย่าง</th>
+                                <th className="p-3 text-left">ชื่อยาสมุนไพร</th>
+                                <th className="p-3 text-left">การนำเอาไปใช้</th>
+                                <th className="p-3 text-left">อัพโหลดรูปภาพตัวอย่าง</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -148,22 +147,22 @@ export default function CreateCard() {
             {isModalOpen && selectedCard && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
                     <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
-                        <h3 className="text-xl font-semibold mb-4">รายละเอียดนามบัตร</h3>
+                        <h3 className="text-xl font-semibold mb-4">ข้อมูลสมุนไพร</h3>
                         <div className="mb-4">
-                            <label className="block text-lg font-semibold text-blue-600 mb-2">ชื่อ-สกุล</label>
+                            <label className="block text-lg font-semibold text-blue-600 mb-2">ชื่อยาสมุนไพร</label>
                             <p>{selectedCard.name}</p>
                         </div>
                         <div className="mb-4">
-                            <label className="block text-lg font-semibold text-blue-600 mb-2">ที่อยู่</label>
+                            <label className="block text-lg font-semibold text-blue-600 mb-2">รายละเอียด</label>
                             <p>{selectedCard.note}</p>
                         </div>
                         <div className="mb-4">
-                            <label className="block text-lg font-semibold text-blue-600 mb-2">หมายเลขโทรศัพท์</label>
+                            <label className="block text-lg font-semibold text-blue-600 mb-2">การนำเอาไปใช้</label>
                             <p>{selectedCard.phone}</p>
                         </div>
                         {selectedCard.image && (
                             <div className="mb-4">
-                                <label className="block text-lg font-semibold text-blue-600 mb-2">รูปภาพ</label>
+                                <label className="block text-lg font-semibold text-blue-600 mb-2">อัพโหลดรูปภาพตัวอย่าง</label>
                                 <img 
                                     src={selectedCard.image} 
                                     alt="Card" 
@@ -175,7 +174,7 @@ export default function CreateCard() {
                             onClick={handleCloseModal} 
                             className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300"
                         >
-                            ปิด
+                            ย้อนกลับ
                         </button>
                     </div>
                 </div>

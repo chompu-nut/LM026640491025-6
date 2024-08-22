@@ -55,8 +55,7 @@ export default function Index() {
         
         <li>Name : choompunut netisit </li>
         <li>Class : Informmation Technology </li>
-        <li>E-mail : <a href="mailto:choompunut.net@rmutto.ac.th">Contact me.</a></li>
-        <li> <img src="images/4.jpg" alt="choompu" /></li>
+        <li>E-mail : <a href="mailto:">choompunut.net@rmutto.ac.th</a></li>
       </ul>
 </div>
   );
